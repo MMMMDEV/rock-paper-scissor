@@ -17,11 +17,13 @@ function rpc() {
     if (input == "rock") {
         let answer =  "You picked " + input + "!...";
         if (getRan() == 0) {
-            return answer + "computer says 'rock'..." + "Congratulations! you won";
+            return answer + "computer says 'rock'..." + "Draw!";
         } else if (getRan() == 1) {
             return answer + "computer says 'paper'..." + "sorry you lost";
         } else if (getRan() == 2) {
             return answer + "computer says 'scissor'..." + "sorry you lost";
+        } else {
+            return "Error";
         }
     }
 }
