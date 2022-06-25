@@ -16,8 +16,27 @@ function computerPlay() {
             return "scissor";
             break;
     }
-
-    
-    
 }
-console.log(computerPlay());
+
+
+
+// function to play a round of rps
+function playRound(playerSelection, computerSelection) {
+    if (computerSelection === "rock") {
+        switch (playerSelection) {
+            case "rock":
+                return "Draw!, Rock and Rock are the same";
+                break;
+            case "paper":
+                return "You Win!, Paper beats Rock";
+                break;
+            case "scissor":
+                return "You Lose!, Scissor won't beat Rock"
+        }
+    }
+}
+
+let player = "paper";
+player = player.toLowerCase();
+const computer = computerPlay();
+console.log(playRound(player, computer));
