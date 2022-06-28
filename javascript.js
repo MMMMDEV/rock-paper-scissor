@@ -28,37 +28,70 @@ function playRound(playerSelection, computerSelection) {
                 return "Draw!, Rock and Rock are the same";
                 break;
             case "paper":
-                return "You Win!, Paper beats Rock";
+                return "Win!, Paper beats Rock";
                 break;
-            case "scissor":
-                return "You Lose!, Scissors won't beat Rock";
+            case "scissors":
+                return "Loose!, Scissors won't beat Rock";
         }
     } else if (computerSelection === "paper") {
         switch (playerSelection) {
             case "rock":
-                return "You Lose!, Rock won't beat Paper";
+                return "Loose!, Rock won't beat Paper";
                 break;
             case "paper":
                 return "Draw!, Paper and Paper are the same";
                 break;
-            case "scissor":
-                return "You Win!, Scissors beats Paper";
+            case "scissors":
+                return "Win!, Scissors beats Paper";
         }
     } else if (computerSelection === "scissor") {
         switch (playerSelection) {
             case "rock":
-                return "You Win!, Rock beats Scissors";
+                return "Win!, Rock beats Scissors";
                 break;
             case "paper":
-                return "You Lose!, Paper won't beat Scissors";
+                return "Loose!, Paper won't beat Scissors";
                 break;
-            case "scissor":
+            case "scissors":
                 return "Draw!, Scissors and Scissors are the same";
         }
     }
 }
 
-let player = "Scissor";
-player = player.toLowerCase();
-const computer = computerPlay();
-console.log(playRound(player, computer));
+//function to play multiple rounds
+let round = 0;
+
+// regex to verify if player looses or wins round and variables for tracking that
+let regexW = /^["Win!"]/;
+let regexL = /^["Loose!"]/;
+
+let computer = 0;
+let player = 0;
+
+function game() {
+    while (round < 5) {
+        round++;
+        console.log("round " + round)
+
+        let a = playRound(prompt("Rock, Paper, or Scissors?!").toLowerCase(), computerPlay());
+
+        console.log(a);
+
+        if (regexW.test(a) === true) {
+            player++;
+        } else if (regexL.test(a) === true) {
+            computer++;
+        };
+    }
+    
+}
+
+console.log(game());
+
+if (player > computer) {
+    console.log("Player Wins!");
+} else if (player < computer) {
+    console.log("Computer Wins!");
+} else if (player === computer) {
+    console.log("Tie!");
+};
