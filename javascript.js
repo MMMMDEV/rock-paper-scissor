@@ -58,40 +58,4 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-//function to play multiple rounds
-let round = 0;
-
-// regex to verify if player looses or wins round and variables for tracking that
-let regexW = /^["Win!"]/;
-let regexL = /^["Loose!"]/;
-
-let computer = 0;
-let player = 0;
-
-function game() {
-    while (round < 5) {
-        round++;
-        console.log("round " + round)
-
-        let a = playRound(prompt("Rock, Paper, or Scissors?!").toLowerCase(), computerPlay());
-
-        console.log(a);
-
-        if (regexW.test(a) === true) {
-            player++;
-        } else if (regexL.test(a) === true) {
-            computer++;
-        };
-    }
-    
-}
-
-console.log(game());
-
-if (player > computer) {
-    console.log("Player Wins!");
-} else if (player < computer) {
-    console.log("Computer Wins!");
-} else if (player === computer) {
-    console.log("Tie!");
-};
+console.log(playRound("rock", computerPlay()));
