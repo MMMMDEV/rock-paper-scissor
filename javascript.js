@@ -58,4 +58,7 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-console.log(playRound("rock", computerPlay()));
+console.log(play("rock", computerPlay()));
+
+//adding eventlisteners to run playround on each button
+
