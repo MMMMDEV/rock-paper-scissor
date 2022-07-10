@@ -25,35 +25,35 @@ function playRound(playerSelection, computerSelection) {
     if (computerSelection === "rock") {
         switch (playerSelection) {
             case "rock":
-                console.log ("Draw!, Rock and Rock are the same");
+                result.textContent = "Draw!, Rock and Rock are the same";
                 break;
             case "paper":
-                console.log("Win!, Paper beats Rock");
+                result.textContent = "Win!, Paper beats Rock";
                 break;
             case "scissors":
-                console.log("Loose!, Scissors won't beat Rock");
+                result.textContent = "Loose!, Scissors won't beat Rock";
         }
     } else if (computerSelection === "paper") {
         switch (playerSelection) {
             case "rock":
-                console.log("Loose!, Rock won't beat Paper");
+                result.textContent = "Loose!, Rock won't beat Paper";
                 break;
             case "paper":
-                console.log("Draw!, Paper and Paper are the same");
+                result.textContent = "Draw!, Paper and Paper are the same";
                 break;
             case "scissors":
-                console.log("Win!, Scissors beats Paper");
+                result.textContent = "Win!, Scissors beats Paper";
         }
     } else if (computerSelection === "scissor") {
         switch (playerSelection) {
             case "rock":
-                console.log("Win!, Rock beats Scissors");
+                result.textContent = "Win!, Rock beats Scissors";
                 break;
             case "paper":
-                console.log("Loose!, Paper won't beat Scissors");
+                result.textContent = "Loose!, Paper won't beat Scissors";
                 break;
             case "scissors":
-                console.log("Draw!, Scissors and Scissors are the same");
+                result.textContent = "Draw!, Scissors and Scissors are the same";
         }
     }
 }
@@ -63,6 +63,7 @@ function playRound(playerSelection, computerSelection) {
 const btnRock = document.querySelector(".rock");
 const btnPaper = document.querySelector(".paper");
 const btnScissors = document.querySelector(".scissors");
+const resultContainer = document.querySelector(".result-container");
 
 btnRock.addEventListener("click", e => {
     playRound("rock", computerPlay());
@@ -75,3 +76,8 @@ btnPaper.addEventListener("click", e => {
 btnScissors.addEventListener("click", e => {
     playRound("scissors", computerPlay())
 });
+
+const result = document.createElement("p");
+result.classList.add("result");
+
+resultContainer.appendChild(result);
