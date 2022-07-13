@@ -74,6 +74,8 @@ const btnPaper = document.querySelector(".paper");
 const btnScissors = document.querySelector(".scissors");
 const roundWinner = document.querySelector(".round-winner-container");
 const resultContainer = document.querySelector(".result-container");
+const modalContainer = document.querySelector(".modal-container");
+const overlay = document.querySelector(".overlay");
 
 btnRock.addEventListener("click", e => {
     playRound("rock", computerPlay());
@@ -117,7 +119,7 @@ result.classList.add("result");
 
 
 roundWinner.appendChild(round);
-roundWinner.appendChild(winner);
+modalContainer.appendChild(winner);
 resultContainer.appendChild(result);
 
 //function for button to refresh page
@@ -127,21 +129,13 @@ function refresh() {
 
 // let game play 5 times and return winner 
 function game() {
+
     //keep track of round
     round.textContent = "Round " + `${clickCount}`;
+
     //end of round track
     if (clickCount === 5) {
         round.textContent = "";
-
-        btnRock.removeEventListener("click", e => {
-            playRound("rock", computerPlay());
-        });
-        btnRock.removeEventListener("click", e => {
-            game()
-        });
-        btnRock.removeEventListener("click", e => {
-            clickCount++;
-        })
 
         if (player > computer) {
             winner.textContent = "Player Wins!";
@@ -153,6 +147,16 @@ function game() {
         
         result.textContent = "";
 
+        
+
+    } else { 
+        winner.textContent = "";
+    };
+
+    if (clickCount === 5) {
+        modalContainer.classList.add("active");
+        overlay.classList.add("active");
+
         const btnPlayAgain = document.createElement("button");
         btnPlayAgain.classList.add("playAgain");
         btnPlayAgain.textContent = "Play Again!"
@@ -160,11 +164,8 @@ function game() {
             refresh();
         }); 
 
-        resultContainer.appendChild(btnPlayAgain);
-
-    } else {
-        winner.textContent = "";
-    };
+        modalContainer.appendChild(btnPlayAgain);
+    }
     
 }
 
