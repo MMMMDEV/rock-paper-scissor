@@ -1,3 +1,15 @@
+:root {
+/* CSS HEX */
+--purple-navy: #4e598cff;
+--beau-blue: #c5d5eaff;
+--dark-jungle-green: #041b15ff;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+
 html {
     background-color: #040f13;
     max-width: 100%;
@@ -5,7 +17,7 @@ html {
 }
 
 body {
-    background-color: rgb(188, 201, 201);
+    background-color: var(--purple-navy);
     width: 100%;
     height: 100%;
     margin: 0;
@@ -25,26 +37,29 @@ main {
 }
 
 .round-winner-container {
-    background-color: white;
+    background-color: var(--beau-blue);
     width: 1400px;
     height: 100px;
+    border-radius: 10px 10px 0px 0px;
+    border-bottom: solid whitesmoke;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, .5);
 }
 
 .selection {
-    background-color: antiquewhite;
+    background-color: var(--beau-blue);
     width: 1400px;
     height: 600px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 100px;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, .5);
 }
 
 .selector-container {
-    background-color: coral;
     width: 200px;
     height: 300px;
     display: flex;
@@ -55,17 +70,61 @@ main {
 .rock,
 .paper,
 .scissors {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
     width: 200px;
     height: 300px;
+    cursor: pointer;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    border: none;
+    --border-size: 4px;
+}
+
+.rock::before,
+.paper::before,
+.scissors::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    border: var(--border-size) solid black;
+    border-radius: 10px;
+    transition: top, left, right, bottom, 100ms ease-in-out;
+}
+
+.scissors:hover:before,
+.scissors:focus:before,
+.paper:hover:before,
+.paper:focus:before,
+.rock:hover:before,
+.rock:focus:before {
+    z-index: 0;
+    top: calc(var(--border-size) * -2);
+    left: calc(var(--border-size) * -2);
+    right: calc(var(--border-size) * -2);
+    bottom: calc(var(--border-size) * -2);
+}
+
+img {
+    width: 200px;
 }
 
 .result-container {
-    background-color: white;
+    background-color: var(--beau-blue);
     width: 1400px;
     height: 100px;
+    border-radius: 0px 0px 10px 10px;
+    border-top: solid whitesmoke;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, .4);
 }
 
 .modal-container {
@@ -116,11 +175,23 @@ main {
 }
 
 footer {
-    background-color: #5c6a6e;
+    background-color: whitesmoke;
     position: relative;
     width: 100%;
     height: 50px;
+    padding: 10px 0px;
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 50px;
+    
+}
+
+a {
+    text-decoration: none;
+    color: #040f13;
+}
+
+a:visited {
+    color: #040f13;
 }
