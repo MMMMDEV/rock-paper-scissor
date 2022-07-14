@@ -116,7 +116,7 @@ round.classList.add("winner");
 const result = document.createElement("p");
 result.classList.add("result");
 
-
+round.textContent = "Start";
 
 roundWinner.appendChild(round);
 modalContainer.appendChild(winner);
@@ -134,7 +134,7 @@ function game() {
     round.textContent = "Round " + `${clickCount}`;
 
     //end of round track
-    if (clickCount === 5) {
+    if (clickCount === 4) {
         round.textContent = "";
 
         if (player > computer) {
@@ -153,7 +153,7 @@ function game() {
         winner.textContent = "";
     };
 
-    if (clickCount === 5) {
+    if (clickCount === 3) {
         modalContainer.classList.add("active");
         overlay.classList.add("active");
 
