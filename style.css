@@ -72,7 +72,7 @@ main {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 30px;
     padding: 25px 0px;
     box-shadow: 10px 10px 5px rgba(0, 0, 0, .5);
 }
@@ -201,6 +201,7 @@ img {
     background-color: #040f13;
     color: whitesmoke;
     border: none;
+    margin-bottom: 55px;
 }
 
 footer {
@@ -215,6 +216,7 @@ footer {
 .footer-content-container {
     display: flex;
     flex-direction: row;
+    width: 100%;
 }
 
 .github-icon {
@@ -231,10 +233,11 @@ footer {
 
 .right-footer {
     display: flex;
+    width: 100%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: small;
+    font-size: 13px;
     padding: 10px;
     gap: 5px;
     text-align: center;
@@ -248,4 +251,95 @@ a {
 
 a:visited {
     color: #040f13;
+}
+
+@media only screen and (min-width: 800px) {
+
+    main {
+        margin: 180px 0px;
+    }
+
+    .round-winner-container {
+        font-size: 25px;
+    }
+
+    .selection {
+        gap: 70px;
+        padding: 50px 0px;
+    }
+
+    .selector-container {
+        width: 130px;
+        height: 230px;
+    }
+
+    .rock,
+    .paper,
+    .scissors {
+    width: 130px;
+    height: 230px;
+    }
+
+    img {
+        width: 130px;
+    }
+
+    .result-container {
+        font-size: 20px;
+    }
+
+    .github-icon {
+        width: 70px;
+    }
+
+    .right-footer {
+        font-size: 17px;
+    }
+}
+
+@media only screen and (min-width: 1600px) {
+
+    main {
+        margin: 280px 0px;
+        width: 80%;
+    }
+
+    .round-winner-container {
+        font-size: 25px;
+        height: 80px;
+    }
+
+    .selection {
+        gap: 100px;
+        padding: 100px 0px;
+    }
+
+    .selector-container {
+        width: 200px;
+        height: 300px;
+    }
+
+    .rock,
+    .paper,
+    .scissors {
+    width: 200px;
+    height: 300px;
+    }
+
+    img {
+        width: 200px;
+    }
+
+    .result-container {
+        font-size: 22px;
+        height: 80px;
+    }
+
+    .github-icon {
+        width: 70px;
+    }
+
+    .right-footer {
+        font-size: 18px;
+    }
 }
