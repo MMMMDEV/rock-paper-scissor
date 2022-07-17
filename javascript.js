@@ -107,7 +107,7 @@ btnScissors.addEventListener("click", e => {
     clickCount++;
 })
 
-const round = document.createElement("h4");
+const round = document.createElement("h3");
 round.classList.add("round");
 
 const winner = document.createElement("p");
@@ -134,8 +134,7 @@ function game() {
     round.textContent = "Round " + `${clickCount}`;
 
     //end of round track
-    if (clickCount === 4) {
-        round.textContent = "";
+    if (clickCount === 3) {
 
         if (player > computer) {
             winner.textContent = "Player Wins!";
@@ -145,10 +144,6 @@ function game() {
             winner.textContent = "Tie!";
         }
         
-        result.textContent = "";
-
-        
-
     } else { 
         winner.textContent = "";
     };
@@ -158,7 +153,7 @@ function game() {
         overlay.classList.add("active");
 
         const btnPlayAgain = document.createElement("button");
-        btnPlayAgain.classList.add("playAgain");
+        btnPlayAgain.classList.add("play-again");
         btnPlayAgain.textContent = "Play Again!"
         btnPlayAgain.addEventListener("click", e => {
             refresh();
